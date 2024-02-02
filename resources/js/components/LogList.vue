@@ -13,7 +13,7 @@
             </button>
           </div>
           <div class="hidden md:block">
-            <SiteSettingsDropdown class="ml-2" id="desktop-site-settings" />
+            <!-- <SiteSettingsDropdown class="ml-2" id="desktop-site-settings" /> -->
           </div>
           <div class="md:hidden">
             <button type="button" class="menu-button">

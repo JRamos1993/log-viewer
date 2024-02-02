@@ -19,7 +19,7 @@ class IndexController
                 'back_to_system_url' => config('log-viewer.back_to_system_url'),
                 'back_to_system_label' => config('log-viewer.back_to_system_label'),
                 'max_log_size_formatted' => Utils::bytesForHumans(LogViewer::maxLogSize()),
-                'show_support_link' => config('log-viewer.show_support_link', true),
+                'show_support_link' => config('log-viewer.show_support_link', false),
 
                 'supports_hosts' => LogViewer::supportsHostsFeature(),
                 'hosts' => LogViewer::getHosts(),

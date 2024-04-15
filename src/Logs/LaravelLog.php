@@ -34,13 +34,11 @@ class LaravelLog extends Log
 
         // sometimes, even the first line will have a HUGE exception with tons of debug data all in one line,
         // so in order to properly match, we must have a smaller first line...
-        $firstLineSplit = str_split($firstLine, 1000);
+        $firstLineSplit = mb_str_split($firstLine, 1000);
 
         preg_match(static::regexPattern(), array_shift($firstLineSplit), $matches);
 
-        $this->datetime = Carbon::parse($matches[1])->tz(
-            config('log-viewer.timezone', config('app.timezone', 'UTC'))
-        );
+        $this->datetime = Carbon::parse($matches[1])?->setTimezone(LogViewer::timezone());
 
         // $matches[2] contains microseconds, which is already handled
         // $matches[3] contains timezone offset, which is already handled
